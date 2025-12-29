@@ -40,15 +40,24 @@ export default function MonthlyDistanceChart({
     <XAxis dataKey="month" stroke="#aaa" />
     <YAxis stroke="#aaa" />
 
-    <Tooltip
-      formatter={(value) =>
-        typeof value === 'number'
-          ? [`${value.toFixed(1)} km`, 'Quãng đường']
-          : value
-      }
-      labelFormatter={(label) => `Tháng ${label}`}
-    />
-
+   {/* <Tooltip
+  contentStyle={{
+    backgroundColor: 'rgba(0,0,0,0.8)',
+    borderRadius: '12px',
+    border: 'none',
+    color: '#fff',
+  }}
+  labelStyle={{
+    color: 'rgba(255,255,255,0.6)',
+    marginBottom: 4,
+  }}
+  formatter={(value) => {
+    if (typeof value !== 'number') return value;
+    return [`${value.toFixed(1)} km`, 'Quãng đường'];
+  }}
+  labelFormatter={(label) => `Tháng ${label}`}
+/> */}
+<Tooltip content={() => null} />
     <Line
       type="linear"
       dataKey="distance"
